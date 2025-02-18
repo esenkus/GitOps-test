@@ -4,16 +4,14 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Applications
+kind: Templates
 metadata:
   path: /
   home: GitOps-test
 spec:
-- name: My Dev App
-  type: xlrelease.Application
-  environments:
-  - Dev
-- name: My Prod APp
-  type: xlrelease.Application
-  environments:
-  - Prod
+- name: Triggered
+  type: time.Schedule
+  releaseTitle: T1
+  template: MyTemplate
+  releaseFolder: ./
+  periodicity: 0 0 20-22 * * MON-FRI
