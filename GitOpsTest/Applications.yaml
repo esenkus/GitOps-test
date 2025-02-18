@@ -4,14 +4,16 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Templates
+kind: Applications
 metadata:
   path: /
   home: GitOps-test
 spec:
-- template: MyTemplate
-  scheduledStartDate: 2025-02-18T09:00:00+02:00
-  phases:
-  - phase: New Phase
-  riskProfile: Default risk profile
-  author: admin
+- name: My Dev App
+  type: xlrelease.Application
+  environments:
+  - Dev
+- name: My Prod APp
+  type: xlrelease.Application
+  environments:
+  - Prod
