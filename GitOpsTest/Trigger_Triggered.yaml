@@ -9,7 +9,9 @@ metadata:
   path: /
   home: GitOps-test
 spec:
-- folderVariables:
-  - type: xlrelease.PasswordStringVariable
-    key: folder.github_token
-    value: !value "xlrelease_PasswordStringVariable_folder_github_token_value"
+- name: Triggered
+  type: time.Schedule
+  releaseTitle: T1
+  template: MyTemplate
+  releaseFolder: ./
+  periodicity: 0 0 20-22 * * MON-FRI

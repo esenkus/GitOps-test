@@ -1,0 +1,38 @@
+# Exported from:        http://esenkus-Precision-5480:5516/
+# Release version:      24.1.0
+# Date created:         Tue Feb 18 09:20:26 EET 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: GitOps-test
+spec:
+- name: My Fancy Dashbourdu
+  type: xlrelease.BlankDashboard
+  description: For testing and shilling
+  owner: admin
+  tiles:
+  - name: Active releases
+    type: live.ReleasesTile
+    row: 0
+    col: 0
+    filters:
+    - type: xlrelease.DateFilter
+    - type: xlrelease.CompositeFilter
+      filters:
+      - type: xlrelease.FolderFilter
+        folder: ./
+  - name: Latest commits
+    type: test.LatestCommitsTile
+    row: 0
+    col: 2
+    supportedScopes:
+    - release
+    - folder
+    - global
+  - name: Welcome
+    type: xlrelease.WelcomeTile
+    row: 0
+    col: 3
