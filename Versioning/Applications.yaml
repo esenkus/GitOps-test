@@ -1,6 +1,6 @@
 # Exported from:        http://esenkus-Precision-5480:5516/
 # Release version:      24.1.0
-# Date created:         Wed Mar 05 09:47:56 EET 2025
+# Date created:         Wed Mar 05 11:06:06 EET 2025
 
 ---
 apiVersion: xl-release/v1
@@ -9,6 +9,15 @@ metadata:
   path: /
   home: Versioning
 spec:
+- name: Acme-Backend
+  type: xlrelease.Application
+  correlationUid: dbd363b1-b17e-4a8c-8954-ec7f6b045ed3
+  applicationSource:
+    type: deploy.ApplicationSource
+    serverUrl: http://host.k3d.internal:4516
+    applicationPath: "[Acme-Backend](http://host.k3d.internal:4516/#/explorer?ciId=Applications)"
+  environments:
+  - DEV
 - name: dev app
   type: xlrelease.Application
   environments:

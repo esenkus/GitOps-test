@@ -1,6 +1,6 @@
 # Exported from:        http://esenkus-Precision-5480:5516/
 # Release version:      24.1.0
-# Date created:         Wed Mar 05 09:47:56 EET 2025
+# Date created:         Wed Mar 05 11:06:05 EET 2025
 
 ---
 apiVersion: xl-release/v1
@@ -9,13 +9,40 @@ metadata:
   path: /
   home: Versioning
 spec:
+- name: DEV
+  type: xlrelease.Environment
+  correlationUid: e4cad989-3630-4730-9b8e-508ea8118d43
+  description: "Target: http://host.k3d.internal:4516/#/explorer?ciId=Environments/Acme-Backend/DEV"
+  stage: Unknown
+  deploymentTarget:
+    type: deploy.DeploymentTarget
+    targetUrl: http://host.k3d.internal:4516/#/explorer?ciId=Environments/Acme-Backend/DEV
+    environmentPath: "[DEV](http://host.k3d.internal:4516/#/explorer?ciId=Environments/Acme-Backend/DEV)"
 - name: Dev test
   type: xlrelease.Environment
   stage: Development
   labels:
   - dev-tag
+- name: PROD
+  type: xlrelease.Environment
+  correlationUid: 53cb4f81-ef2e-4fbb-9cb5-9bd736f085fb
+  description: "Target: http://host.k3d.internal:4516/#/explorer?ciId=Environments/Acme-Backend/PROD"
+  stage: Unknown
+  deploymentTarget:
+    type: deploy.DeploymentTarget
+    targetUrl: http://host.k3d.internal:4516/#/explorer?ciId=Environments/Acme-Backend/PROD
+    environmentPath: "[PROD](http://host.k3d.internal:4516/#/explorer?ciId=Environments/Acme-Backend/PROD)"
 - name: Prod test
   type: xlrelease.Environment
   stage: Production
   labels:
   - prod-tag
+- name: TEST
+  type: xlrelease.Environment
+  correlationUid: 05db8367-34fa-4965-b92f-91e551ce43ed
+  description: "Target: http://host.k3d.internal:4516/#/explorer?ciId=Environments/Acme-Backend/TEST"
+  stage: Unknown
+  deploymentTarget:
+    type: deploy.DeploymentTarget
+    targetUrl: http://host.k3d.internal:4516/#/explorer?ciId=Environments/Acme-Backend/TEST
+    environmentPath: "[TEST](http://host.k3d.internal:4516/#/explorer?ciId=Environments/Acme-Backend/TEST)"

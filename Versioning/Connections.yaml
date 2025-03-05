@@ -1,0 +1,31 @@
+# Exported from:        http://esenkus-Precision-5480:5516/
+# Release version:      24.1.0
+# Date created:         Wed Mar 05 11:06:06 EET 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: Versioning
+spec:
+- name: Deploy serveru - Webhook
+  type: events.PostWebhookEndpoint
+  path: path-024939b9-b487-4245-9c06-2e704680d631
+  authentication:
+    type: events.NoAuthentication
+- name: Deploy serveru deployments
+  type: deploy.DeploymentConfig
+  application: Applications/.*
+  environment: Environments/.*
+- name: Deploy serveru
+  type: digitalai.DeployServer
+  url: http://host.k3d.internal:4516
+  username: admin
+  password: !value "digitalai_DeployServer_Deploy_serveru_password"
+- name: Deploy serveru - Event source
+  type: deploy.StatusWebhookEventSource
+  eventSource: Deploy serveru - Webhook
+  sourceServer: Deploy serveru
+  liveDeploymentConfigs:
+  - Deploy serveru deployments
