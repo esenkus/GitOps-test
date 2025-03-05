@@ -1,0 +1,31 @@
+# Exported from:        http://esenkus-Precision-5480:5516/
+# Release version:      24.1.0
+# Date created:         Wed Mar 05 11:35:12 EET 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: versioning-without-apps
+spec:
+- name: Deploy test - Webhook
+  type: events.PostWebhookEndpoint
+  path: path-acde8f5a-091a-4e78-afde-f62c580fe958
+  authentication:
+    type: events.NoAuthentication
+- name: Deploy test deployments
+  type: deploy.DeploymentConfig
+  application: Applications/.*
+  environment: Environments/.*
+- name: Deploy test
+  type: digitalai.DeployServer
+  url: http://host.k3d.internal:4516
+  username: admin
+  password: !value "digitalai_DeployServer_Deploy_test_password"
+- name: Deploy test - Event source
+  type: deploy.StatusWebhookEventSource
+  eventSource: Deploy test - Webhook
+  sourceServer: Deploy test
+  liveDeploymentConfigs:
+  - Deploy test deployments
