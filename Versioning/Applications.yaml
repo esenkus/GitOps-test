@@ -1,0 +1,19 @@
+# Exported from:        http://esenkus-Precision-5480:5516/
+# Release version:      24.1.0
+# Date created:         Wed Mar 05 09:47:56 EET 2025
+
+---
+apiVersion: xl-release/v1
+kind: Applications
+metadata:
+  path: /
+  home: Versioning
+spec:
+- name: dev app
+  type: xlrelease.Application
+  environments:
+  - Dev test
+- name: prod app
+  type: xlrelease.Application
+  environments:
+  - Prod test
